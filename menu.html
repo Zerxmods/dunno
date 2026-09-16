@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Restoran / Cafe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E7DECC;
+        }
+
+        header {
+            padding: 10px;
+            background-color: #956746;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            width: 25vw; 
+            max-width: 200px;
+            min-width: 100px;
+            display: block;
+            filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 35));
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h2 {
+            font-weight: 1000;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #956746;
+            padding-bottom: 5px;
+        }
+
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 10px;
+            padding: 9px 0;
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .scroll-container::-webkit-scrollbar-thumb {
+            background-color: #956746;
+            border-radius: 4px;
+        }
+
+        .menu-item {
+            height: 200px;
+            width: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #lightbox-img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+
+        #close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 10000;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://i.postimg.cc/x8d7Zhqy/logo.png" alt="Logo" class="logo">
+    </header>
+
+    <main>
+        <h2>Coffee</h2>
+        <div class="scroll-container">
+            <img src="https://i.postimg.cc/XY2TfVJS/Coffee1.jpg" alt="Coffee" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/NFSK2hH1/Coffee2.jpg" alt="Coffee" class="menu-item" onclick="openLightbox(this.src)">
+        </div>
+
+        <h2>Main Course</h2>
+        <div class="scroll-container">
+            <img src="https://i.postimg.cc/XYQp9ydG/Main-Course1.jpg" alt="Main Course" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/0y2N523h/Main-Course2.jpg" alt="Main Course" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/qRnJDth3/Main-Course3.jpg" alt="Main Course" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/w3Ysb8jX/Main-Course4.jpg" alt="Main Course" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/fy9H19YH/Main-Course5.jpg" alt="Main Course" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/YqQn3Qrj/Main-Course6.jpg" alt="Main Course" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/T3R9JSHX/Main-Course7.jpg" alt="Main Course" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/jdYvLCHV/Main-Course8.jpg" alt="Main Course" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/prbQh1n9/Main-Course9.jpg" alt="Main Course" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/tCzdJkR1/Main-Course10.jpg" alt="Main Course" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/HWwXvzyv/Main-Course11.jpg" alt="Main Course" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/jSF7nkpS/Main-Course12.jpg" alt="Main Course" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/yxjJ1fhk/Main-Course13.jpg" alt="Main Course" class="menu-item" onclick="openLightbox(this.src)">
+        </div>
+
+        <h2>Dessert</h2>
+        <div class="scroll-container">
+            <img src="https://i.postimg.cc/wv6gq9wm/dessert1.jpg" alt="Dessert" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/XqrMqqd8/dessert2.jpg" alt="Dessert" class="menu-item" onclick="openLightbox(this.src)">
+        </div>
+
+        <h2>Appetizer</h2>
+        <div class="scroll-container">
+            <img src="https://i.postimg.cc/5yzVpjyb/Apparizer1.jpg" alt="Appetizer" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/VNHP8X0x/Apparizer2.jpg" alt="Appetizer" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/65LsQkGz/Apparizer3.jpg" alt="Appetizer" class="menu-item" onclick="openLightbox(this.src)">
+        </div>
+
+        <h2>Non Coffee</h2>
+        <div class="scroll-container">
+            <img src="https://i.postimg.cc/8cSKQCwF/Non-Coffee1.jpg" alt="Non-Coffee" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/zXpd68hB/Non-Coffee2.jpg" alt="Non-Coffee" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/kGsy0vBj/Non-Coffee3.jpg" alt="Non-Coffee" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/28HwTTpN/Non-Coffee4.jpg" alt="Non-Coffee" class="menu-item" onclick="openLightbox(this.src)">
+            <img src="https://i.postimg.cc/ht60RjPy/Non-Coffee5.jpg" alt="Non-Coffee" class="menu-item" onclick="openLightbox(this.src)">
+        </div>
+    </main>
+
+    <div id="lightbox">
+        <img id="close-btn" src="https://img.icons8.com/color/48/000000/close-window.png" alt="Tutup" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Menu Diperbesar">
+    </div>
+
+    <script>
+        function openLightbox(imageSource) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            lightboxImg.src = imageSource;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+        }
+
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target !== document.getElementById('lightbox-img') && e.target !== document.getElementById('close-btn')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
